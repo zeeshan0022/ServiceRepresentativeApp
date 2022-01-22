@@ -1,0 +1,98 @@
+plugins {
+    id 'com.android.application'
+
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+
+}
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.joinhub.servicerepresentative"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            // Signing certificate.
+            storeFile file("D:\\Final Year Projects\\keystore.jks")
+            // Key store password.
+            storePassword "zeeshann015"
+            // Alias.
+            keyAlias "key0"
+            // Key password.
+            keyPassword "zeeshann015"
+            v2SigningEnabled true
+        }
+    }
+    buildTypes {
+        release {
+
+
+
+            minifyEnabled false
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+    buildFeatures{
+        viewBinding true
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+dependencies {
+    implementation"net.sourceforge.jtds:jtds:1.3.1"
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation 'androidx.test:core-ktx:1.4.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    def lifecycle_version = "2.3.1"
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.google.code.ksoap2-android:ksoap2-android:3.6.4'
+    //DataStore Dependencies
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation("androidx.datastore:datastore-preferences-rxjava2:1.0.0")
+    implementation("androidx.datastore:datastore-preferences-rxjava3:1.0.0")
+    implementation 'androidx.preference:preference-ktx:1.1.1'
+
+    //Progress
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+
+    implementation 'com.android.support:multidex:1.0.0'
+   // implementation 'com.google.android.gms:play-services:12.0.1'
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.huawei.agconnect:agconnect-core:1.5.2.300'
+    implementation 'com.huawei.hms:maps:6.3.0.302'
+}
+apply plugin: 'com.huawei.agconnect'

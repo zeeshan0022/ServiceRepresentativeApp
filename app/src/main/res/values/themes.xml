@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ServiceRepresentative" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary</item>
+        <item name="colorOnPrimary">@color/txtColor</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSec</item>
+        <item name="colorSecondaryVariant">@color/cardBack</item>
+        <item name="colorOnSecondary">@color/grey</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+
+        <item name="backgroundColor">@color/back</item>
+        <item name="android:textColor">@color/black</item>
+
+        <item name="android:windowSoftInputMode">stateAlwaysHidden|adjustPan</item>
+
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="customCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeTopRight">20dp</item>
+    </style>
+</resources>
