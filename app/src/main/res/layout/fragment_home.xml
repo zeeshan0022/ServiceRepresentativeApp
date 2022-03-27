@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:paddingBottom="10dp"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
     <TextView
         android:id="@+id/analtics"
         android:layout_width="wrap_content"
@@ -54,19 +54,19 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:padding="0dp" />
+
             <TextView
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="5dp"
-                android:textSize="18sp"
-                android:layout_below="@id/activeBarchart"
-                android:fontFamily="@font/imbplexmediem"
+                android:id="@+id/txtActive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/activeBarchart"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/imbplexmediem"
                 android:text="100"
 
-                android:id="@+id/txtActive"
                 android:textColor="@color/white"
-                />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txta"
@@ -165,7 +165,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_toEndOf="@id/txtSolved"
                     android:fontFamily="@font/imbplexmediem"
-                    android:text="Pending"
+                    android:text="Solved"
                     android:textColor="@color/grey"
                     android:textSize="14sp" />
 
@@ -244,7 +244,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_toEndOf="@id/txtPending"
                     android:fontFamily="@font/imbplexmediem"
-                    android:text="Pending"
+                    android:text="Cancelled"
                     android:textColor="@color/grey"
                     android:textSize="14sp" />
 
@@ -254,10 +254,10 @@
                     android:layout_below="@id/txtPending"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    android:textSize="14sp"
                     android:fontFamily="@font/ibmplexbold"
-                    android:text="Payments"
-                    android:textColor="@color/white" />
+                    android:text="Complaint"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -446,367 +446,34 @@
         app:layout_constraintTop_toBottomOf="@+id/materialCardView4" />
 
         <TextView
+            android:id="@+id/txtViewAllComplaint"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:foreground="?attr/selectableItemBackground"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
-            android:text="View all"
-            android:id="@+id/txtViewAllComplaint"
-            android:textSize="14sp"
             android:fontFamily="@font/imbplexmediem"
-            android:textColor="?attr/colorSecondary"
-            app:layout_constraintBottom_toTopOf="@+id/materialCardView6"
-            app:layout_constraintDimensionRatio="2.1"
+            android:foreground="?attr/selectableItemBackground"
             android:gravity="center|end"
+            android:text="View all"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintDimensionRatio="2.1"
             app:layout_constraintEnd_toEndOf="@+id/materialCardView4"
             app:layout_constraintTop_toBottomOf="@+id/materialCardView4"
             app:layout_constraintWidth_percent=".19" />
 
-        <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView6"
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
-
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-        <RelativeLayout
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/recyclerHomeComplaint"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="10dp"
-                android:layout_height="match_parent"
-                android:background="?attr/colorSecondary" />
-
-
-            <LinearLayout
-                android:id="@+id/l1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@id/view"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ibmplexbold"
-                    android:text="Ticket No: "
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/imbplexmediem"
-                    android:text="rp-1234"
-                    android:textColor="?attr/colorSecondary"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/l2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/l1"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/view"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ibmplexbold"
-                    android:text="Customer Name: "
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/imbplexmediem"
-                    android:text="Zeeshan Nawaz"
-                    android:textColor="?attr/colorSecondary"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/l3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/l2"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/view"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ibmplexbold"
-                    android:text="Contact No: "
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/imbplexmediem"
-                    android:text="03205582355"
-                    android:textColor="?attr/colorSecondary"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/l4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/l3"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/view"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ibmplexbold"
-                    android:text="Issue Type: "
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/imbplexmediem"
-                    android:text="Game Lagging"
-                    android:textColor="?attr/colorSecondary"
-                    android:textSize="13sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/l5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/l4"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/view"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ibmplexbold"
-                    android:text="Status : "
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/imbplexmediem"
-                    android:text="Active"
-                    android:textColor="?attr/colorSecondary"
-                    android:textSize="13sp" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/ibmplexbold"
-                android:text="More Info"
-                android:id="@+id/moreInfo"
-                android:textColor="?attr/colorSecondary"
-                android:textSize="14sp" />
-        </RelativeLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView6">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <View
-                android:id="@+id/view1"
-                android:layout_width="10dp"
-                android:layout_height="match_parent"
-                android:background="?attr/colorSecondary" />
+        </androidx.recyclerview.widget.RecyclerView>
 
 
-            <LinearLayout
-                android:id="@+id/ll1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@id/view1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ibmplexbold"
-                    android:text="Ticket No: "
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/imbplexmediem"
-                    android:text="rp-1234"
-                    android:textColor="?attr/colorSecondary"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ll1"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/view1"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ibmplexbold"
-                    android:text="Customer Name: "
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/imbplexmediem"
-                    android:text="Zeeshan Nawaz"
-                    android:textColor="?attr/colorSecondary"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ll2"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/view1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ibmplexbold"
-                    android:text="Contact No: "
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/imbplexmediem"
-                    android:text="03205582355"
-                    android:textColor="?attr/colorSecondary"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ll3"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/view1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ibmplexbold"
-                    android:text="Issue Type: "
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/imbplexmediem"
-                    android:text="Game Lagging"
-                    android:textColor="?attr/colorSecondary"
-                    android:textSize="13sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ll4"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/view1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ibmplexbold"
-                    android:text="Status : "
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/imbplexmediem"
-                    android:text="Active"
-                    android:textColor="?attr/colorSecondary"
-                    android:textSize="13sp" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/ibmplexbold"
-                android:text="More Info"
-                android:textColor="?attr/colorSecondary"
-                android:textSize="14sp" />
-        </RelativeLayout>
-
-    </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</LinearLayout>

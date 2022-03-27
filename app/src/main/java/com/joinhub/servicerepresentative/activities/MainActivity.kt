@@ -8,9 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.joinhub.alphavpn.utility.Preference
-import com.joinhub.complaintprotaluser.utilties.Constants
+import com.joinhub.servicerepresentative.utitlies.Constants
 import com.joinhub.complaintprotaluser.viewmodels.ThemeViewModel
-import com.joinhub.servicerepresentative.R
 import com.joinhub.servicerepresentative.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         init()
 
         val preference= Preference(baseContext)
-        if(preference.isBooleenPreference("empID")){
+        if(preference.isBooleenPreference("user")){
             Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(Intent(baseContext,DashboardActivity::class.java))
                 finish()
@@ -45,17 +44,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkTheme(){
-        viewTheme.readFromDataStore.observe(this, {
-
-            if(it.equals("1")){
-                themeBool=false
+        viewTheme.readFromDataStore.observe(this) {
+            if (it.equals("1")) {
+                themeBool = false
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 Constants.lightThemeStyle(this)
-            }else{
+            } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 Constants.darkThemeStyle(this)
-                themeBool=true
+                themeBool = true
             }
-        })
+        }
     }
 }

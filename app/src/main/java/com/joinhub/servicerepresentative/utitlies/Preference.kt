@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 
 class Preference (private val context:Context){
-    var appSharedPrefs: SharedPreferences? = context.getSharedPreferences("SpeedVPN_pref", Activity.MODE_PRIVATE)
+    var appSharedPrefs: SharedPreferences? = context.getSharedPreferences("Service", Activity.MODE_PRIVATE)
     var prefsEditor: SharedPreferences.Editor? =appSharedPrefs!!.edit();
 
     var isSync = false

@@ -17,9 +17,8 @@ import androidx.core.app.ActivityCompat
 import android.content.pm.PackageManager
 
 import android.os.Build
-import android.util.Log
 import android.view.View
-import com.joinhub.complaintprotaluser.utilties.Constants
+import com.joinhub.servicerepresentative.utitlies.Constants
 
 
 class ComplaintInfoActivity : AppCompatActivity() , OnMapReadyCallback{

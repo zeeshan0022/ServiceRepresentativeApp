@@ -4,8 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.joinhub.alphavpn.utility.Preference
-import com.joinhub.complaintprotaluser.utilties.Constants
-import com.joinhub.servicerepresentative.R
+import com.joinhub.servicerepresentative.utitlies.Constants
 import com.joinhub.servicerepresentative.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {

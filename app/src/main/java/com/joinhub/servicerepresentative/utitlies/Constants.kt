@@ -1,8 +1,6 @@
-package com.joinhub.complaintprotaluser.utilties
+package com.joinhub.servicerepresentative.utitlies
 
 import android.app.Activity
-import android.content.Context
-import android.net.wifi.WifiManager
 import android.os.Build
 import android.view.View
 import android.view.Window
@@ -15,7 +13,7 @@ class Constants {
     companion object {
         const val WSDL_TARGET_NAMESPACE = "http://tempuri.org/"
 
-        const val SOAP_ADDRESS = "https://joinhubcode.azurewebsites.net/WebService1.asmx"
+        const val SOAP_ADDRESS = "http://192.168.0.103:2020/WebService1.asmx"
 
 
         fun darkThemeStyle(activity: Activity) {
@@ -24,8 +22,6 @@ class Constants {
                 val decorView: View = window.decorView
                 val wic = WindowInsetsControllerCompat(window, decorView)
                 wic.isAppearanceLightStatusBars = false // true or false as desired.
-
-                // And then you can set any background color to the status bar.
                 window.statusBarColor = activity.getColor(R.color.backDark)
                 window.navigationBarColor = activity.getColor(R.color.backDark)
 

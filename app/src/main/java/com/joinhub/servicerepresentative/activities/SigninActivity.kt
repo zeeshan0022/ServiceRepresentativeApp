@@ -9,8 +9,7 @@ import android.os.StrictMode
 import android.view.View
 import android.widget.Toast
 import com.joinhub.alphavpn.utility.Preference
-import com.joinhub.complaintprotaluser.utilties.Constants
-import com.joinhub.servicerepresentative.R
+import com.joinhub.servicerepresentative.utitlies.Constants
 import com.joinhub.servicerepresentative.activities.MainActivity.Companion.themeBool
 import com.joinhub.servicerepresentative.databinding.ActivitySigninBinding
 import com.joinhub.servicerepresentative.interfaces.LoginInterface
@@ -48,6 +47,7 @@ class SigninActivity : AppCompatActivity(),LoginInterface{
             }else{
 
                 binding.passwordLayout.error= null
+
             }
         }else{
             binding.userIdLayout.error= null
@@ -79,8 +79,8 @@ class SigninActivity : AppCompatActivity(),LoginInterface{
         showToast("Login Successful")
         // Work in the UI thread
         val preference= Preference(baseContext)
-        preference.setBooleanpreference("empID",true)
-        preference.setStringpreference("emp_Id", binding.userIDeditText.text.toString())
+        preference.setBooleanpreference("user",true)
+        preference.setStringpreference("serviceUserName", binding.userIDeditText.text.toString())
         startActivity(Intent(baseContext,DashboardActivity::class.java))
         finish()
     }
