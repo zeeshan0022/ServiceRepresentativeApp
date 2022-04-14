@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <View
+                android:layout_width="2dp"
+
+                android:layout_height="match_parent"
+                android:background="?attr/colorSecondary" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3.5"
+                android:id="@+id/txtName"
+                android:fontFamily="@font/imbplexmediem"
+                android:gravity="center"
+                android:text="Zeeshan Nawaz"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:id="@+id/txtUserName"
+                android:fontFamily="@font/imbplexmediem"
+                android:gravity="center"
+                android:text="zeeshu10"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:id="@+id/txtStatus"
+                android:fontFamily="@font/imbplexmediem"
+                android:gravity="center"
+                android:text="UnPaid"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:id="@+id/txtCharges"
+                android:fontFamily="@font/imbplexmediem"
+                android:gravity="center"
+                android:text="Rs: 1000"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:id="@+id/btnNext"
+                android:layout_marginEnd="10dp"
+                app:cardBackgroundColor="?attr/colorSecondary"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="5dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+
+                    android:paddingStart="4dp"
+                    android:rotation="180"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                    app:tint="@color/white" />
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</RelativeLayout>

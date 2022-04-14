@@ -1,46 +1,73 @@
 {
+	"agcgw":{
+		"backurl":"connect-dra.hispace.hicloud.com",
+		"url":"connect-dra.dbankcloud.cn",
+		"websocketbackurl":"connect-ws-dra.hispace.dbankcloud.com",
+		"websocketurl":"connect-ws-dra.hispace.dbankcloud.cn"
+	},
 	"agcgw_all":{
 		"CN":"connect-drcn.dbankcloud.cn",
 		"CN_back":"connect-drcn.hispace.hicloud.com",
 		"DE":"connect-dre.dbankcloud.cn",
 		"DE_back":"connect-dre.hispace.hicloud.com",
-		"RU":"connect-drru.dbankcloud.cn",
-		"RU_back":"connect-drru.hispace.hicloud.com",
+		"RU":"connect-drru.hispace.dbankcloud.ru",
+		"RU_back":"connect-drru.hispace.dbankcloud.ru",
 		"SG":"connect-dra.dbankcloud.cn",
 		"SG_back":"connect-dra.hispace.hicloud.com"
 	},
 	"client":{
-		"cp_id":"150092000000158135",
-		"product_id":"737518067794310788",
-		"client_id":"805040519657831360",
-		"client_secret":"E686BD856D20171F0D0903D11FD0053AE93872A8F9D69908ACF0FB7197E19692",
-		"project_id":"737518067794310788",
-		"app_id":"105356923",
-		"api_key":"DAEDAGaEyT32GcbI3m2SmD6MIli6U0fFimXidQAWsdTCDMge7+XILbtgPmBZbQgqWljbYzGnvoiKycf4TeSwb2rbxlMLEDbUz+hlLQ==",
+		"cp_id":"2640092000023485386",
+		"product_id":"99536292102122920",
+		"client_id":"857366312442154624",
+		"client_secret":"25887C8A9458B4CB401374ED24420B752EBD80AD12C932FE71291716FD5AADAA",
+		"project_id":"99536292102122920",
+		"app_id":"105842215",
+		"api_key":"DAEDAOtE5kpDk9fqa1lz257gQmktfxO1LymWLbEwysqzW/rWoEzhNJxOhYZycFp2SRe/p1cJXpK1Hlh1Q5B1P9V51RgDY9jsfQLLgg==",
 		"package_name":"com.joinhub.servicerepresentative"
 	},
 	"oauth_client":{
-		"client_id":"105356923",
+		"client_id":"105842215",
 		"client_type":1
 	},
 	"app_info":{
-		"app_id":"105356923",
+		"app_id":"105842215",
 		"package_name":"com.joinhub.servicerepresentative"
 	},
+	"service":{
+		"analytics":{
+			"collector_url":"datacollector-dra.dt.hicloud.com,datacollector-dra.dt.dbankcloud.cn",
+			"collector_url_ru":"datacollector-drru.dt.dbankcloud.ru,datacollector-drru.dt.hicloud.com",
+			"collector_url_sg":"datacollector-dra.dt.hicloud.com,datacollector-dra.dt.dbankcloud.cn",
+			"collector_url_de":"datacollector-dre.dt.hicloud.com,datacollector-dre.dt.dbankcloud.cn",
+			"collector_url_cn":"datacollector-drcn.dt.hicloud.com,datacollector-drcn.dt.dbankcloud.cn",
+			"resource_id":"p1",
+			"channel_id":""
+		},
+		"search":{
+			"url":"https://search-dra.cloud.huawei.com"
+		},
+		"cloudstorage":{
+			"storage_url":"https://ops-dra.agcstorage.link"
+		},
+		"ml":{
+			"mlservice_url":"ml-api-dra.ai.dbankcloud.com,ml-api-dra.ai.dbankcloud.cn"
+		}
+	},
+	"region":"SG",
 	"configuration_version":"3.0",
 	"appInfos":[
 		{
 			"package_name":"com.joinhub.servicerepresentative",
 			"client":{
-				"app_id":"105356923"
+				"app_id":"105842215"
 			},
 			"app_info":{
 				"package_name":"com.joinhub.servicerepresentative",
-				"app_id":"105356923"
+				"app_id":"105842215"
 			},
 			"oauth_client":{
 				"client_type":1,
-				"client_id":"105356923"
+				"client_id":"105842215"
 			}
 		}
 	]

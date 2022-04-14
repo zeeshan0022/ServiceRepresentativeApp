@@ -3,27 +3,54 @@ package com.joinhub.servicerepresentative.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.lifecycle.ViewModelProvider
 import com.joinhub.alphavpn.utility.Preference
+import com.joinhub.complaintprotaluser.viewmodels.ThemeViewModel
 import com.joinhub.servicerepresentative.utitlies.Constants
 import com.joinhub.servicerepresentative.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {
-    lateinit var binding: ActivityProfileBinding
+    private lateinit var binding: ActivityProfileBinding
+    private lateinit var  preference:Preference
+    lateinit var viewTheme: ThemeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         init()
         binding.logout.setOnClickListener {
-         val preference = Preference(applicationContext)
-            preference.setBooleanpreference("empId",false)
-            preference.setStringpreference("emp_Id",null)
+
+            preference.setBooleanpreference("user",false)
             startActivity(Intent(applicationContext, SigninActivity::class.java))
             finish()
         }
+
+        binding.themeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked){
+              viewTheme.saveToDataStore(0)
+              MainActivity.themeBool=true
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                Constants.darkThemeStyle(this)
+            }else{
+                viewTheme.saveToDataStore(1)
+                MainActivity.themeBool=false
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                Constants.lightThemeStyle(this)
+            }
+        }
+        binding.back.setOnClickListener { finish() }
+        setData()
     }
 
-    fun init(){
+    private fun setData() {
+        binding.txtName.text=preference.getStringpreference("serviceName",null)
+        binding.txtEmail.text=preference.getStringpreference("serviceEmail",null)
+    }
+
+    private fun init(){
+        viewTheme= ViewModelProvider(this)[ThemeViewModel::class.java]
+        preference = Preference(applicationContext)
         if(MainActivity.themeBool) {
         Constants.darkThemeStyle(this)
             binding.themeSwitch.isChecked= true

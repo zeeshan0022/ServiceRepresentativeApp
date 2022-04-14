@@ -22,6 +22,7 @@ android {
             // Signing certificate.
             storeFile file("D:\\Final Year Projects\\keystore.jks")
             // Key store password.
+
             storePassword "zeeshann015"
             // Alias.
             keyAlias "key0"
@@ -32,9 +33,6 @@ android {
     }
     buildTypes {
         release {
-
-
-
             minifyEnabled false
 
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -69,7 +67,7 @@ dependencies {
     def lifecycle_version = "2.4.1"
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -93,5 +91,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'com.huawei.agconnect:agconnect-core:1.5.2.300'
     implementation 'com.huawei.hms:maps:6.3.0.302'
+    implementation 'com.huawei.hms:location:6.3.0.300'
 }
 apply plugin: 'com.huawei.agconnect'

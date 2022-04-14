@@ -19,5 +19,4 @@
         android:id="@+id/navigation_chat"
         android:icon="@drawable/ic_baseline_chat_24"
         android:title="Chats " />
-
 </menu>

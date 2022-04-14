@@ -13,8 +13,8 @@ import com.joinhub.complaintprotaluser.viewmodels.ThemeViewModel
 import com.joinhub.servicerepresentative.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var viewTheme: ThemeViewModel
-    lateinit var binding: ActivityMainBinding
+    private lateinit var viewTheme: ThemeViewModel
+    private lateinit var binding: ActivityMainBinding
     companion object{
         var themeBool:Boolean = false
     }

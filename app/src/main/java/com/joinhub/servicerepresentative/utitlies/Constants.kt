@@ -6,14 +6,15 @@ import android.view.View
 import android.view.Window
 import androidx.core.view.WindowInsetsControllerCompat
 import com.joinhub.servicerepresentative.R
+import java.text.SimpleDateFormat
+import java.util.*
 
 
-class Constants {
+object Constants {
 
-    companion object {
         const val WSDL_TARGET_NAMESPACE = "http://tempuri.org/"
 
-        const val SOAP_ADDRESS = "http://192.168.0.103:2020/WebService1.asmx"
+        const val SOAP_ADDRESS = "http://192.168.0.102:2020/WebService1.asmx"
 
 
         fun darkThemeStyle(activity: Activity) {
@@ -42,5 +43,22 @@ class Constants {
         }
 
 
+    fun getDate(): String {
+        val c = Calendar.getInstance().time
+        println("Current time => $c")
+
+        val df = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        return df.format(c)
     }
-}
+    fun getYear():String{
+        val calendar: Calendar = Calendar.getInstance()
+        val year: Int = calendar.get(Calendar.YEAR)
+        return  year.toString()
+    }
+    fun getMonth():String{
+        val calendar: Calendar = Calendar.getInstance()
+        val i= calendar.get(Calendar.MONTH)+1
+        return i.toString()
+
+    }
+    }
