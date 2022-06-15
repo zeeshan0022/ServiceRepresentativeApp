@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.joinhub.alphavpn.utility.Preference
 import com.joinhub.complaintprotaluser.viewmodels.ThemeViewModel
+import com.joinhub.servicerepresentative.ManageAppActivity
 import com.joinhub.servicerepresentative.utitlies.Constants
 import com.joinhub.servicerepresentative.databinding.ActivityProfileBinding
 
@@ -25,7 +26,12 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(Intent(applicationContext, SigninActivity::class.java))
             finish()
         }
-
+        binding.createUser.setOnClickListener {
+            startActivity(Intent(applicationContext, CreateUserActivity::class.java))
+        }
+        binding.manageUser.setOnClickListener {
+            startActivity(Intent(applicationContext, ManageAppActivity::class.java))
+        }
         binding.themeSwitch.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked){
               viewTheme.saveToDataStore(0)

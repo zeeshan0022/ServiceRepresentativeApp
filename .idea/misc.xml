@@ -3,21 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/drawable/chat_rounded_rect_bg.xml" value="0.1405" />
+        <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/drawable/circle_accent.xml" value="0.1405" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/drawable/ic_complaint.xml" value="0.1921875" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/drawable/ic_key_6313.xml" value="0.2078125" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/drawable/ic_profile.xml" value="0.2078125" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/drawable/switch_thumb.xml" value="0.2078125" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/activity_billing_detail.xml" value="0.17760416666666667" />
+        <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/activity_chat_detail.xml" value="0.19166666666666668" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/activity_complaint_info.xml" value="0.22" />
+        <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/activity_create_user.xml" value="0.20675105485232068" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/activity_forgot.xml" value="0.22" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/activity_main.xml" value="0.19166666666666668" />
+        <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/activity_manage_app.xml" value="0.19166666666666668" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/activity_map_view.xml" value="0.1" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/activity_signin.xml" value="0.25" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/activity_user_billing.xml" value="0.22" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/billing_list_item.xml" value="0.19166666666666668" />
+        <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/chat_room_list.xml" value="0.19166666666666668" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/complaint_item_list.xml" value="0.19166666666666668" />
+        <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/dialog_billing_invoice.xml" value="0.1171875" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/fragment_billing.xml" value="0.22" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/fragment_billing_history.xml" value="0.2" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/fragment_chat_list.xml" value="0.19166666666666668" />
@@ -25,6 +32,9 @@
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.19166666666666668" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/fragment_receive_bill.xml" value="0.19166666666666668" />
+        <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/item_billing_history.xml" value="0.22" />
+        <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/item_chat_mine.xml" value="0.19166666666666668" />
+        <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/layout/item_chat_other.xml" value="0.22" />
         <entry key="..\:/Final Year Projects/ServiceRepresenativeApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17604166666666668" />
       </map>
     </option>

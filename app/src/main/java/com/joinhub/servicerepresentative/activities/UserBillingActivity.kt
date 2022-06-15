@@ -1,15 +1,13 @@
 package com.joinhub.servicerepresentative.activities
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.joinhub.complaintprotaluser.models.UserModel
-import com.joinhub.servicerepresentative.R
 import com.joinhub.servicerepresentative.databinding.ActivityUserBillingBinding
 import com.joinhub.servicerepresentative.interfaces.PackageUpgradeInterface
-import com.joinhub.servicerepresentative.presenatator.BillingPresentator
 import com.joinhub.servicerepresentative.presenatator.PackageUpgradePresentatorval
 import com.joinhub.servicerepresentative.utitlies.Constants
 
@@ -18,13 +16,14 @@ class UserBillingActivity : AppCompatActivity() , PackageUpgradeInterface{
     lateinit var model:UserModel
     lateinit var charges:String
     lateinit var pkgName:String
+    lateinit var preference: com.joinhub.alphavpn.utility.Preference
     lateinit var presentator: PackageUpgradePresentatorval
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityUserBillingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        preference= com.joinhub.alphavpn.utility.Preference(this)
         val b= intent.extras
         if(b!=null){
             model= b.getParcelable<UserModel>("data")!!
@@ -40,7 +39,9 @@ class UserBillingActivity : AppCompatActivity() , PackageUpgradeInterface{
         }
         presentator= PackageUpgradePresentatorval(this, this)
         binding.btnRece.setOnClickListener {
-            presentator.upgradePackage(model.userID,model.pkgID,"ByHand",charges,false,pkgName)
+            presentator.upgradePackage(model.userID,model.pkgID,"ByHand by "+
+                    preference.getStringpreference("serviceUserName",null)
+                ,charges,false,pkgName)
         }
     }
 

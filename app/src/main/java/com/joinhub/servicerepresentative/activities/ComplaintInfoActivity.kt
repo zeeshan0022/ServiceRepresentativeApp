@@ -3,6 +3,7 @@ package com.joinhub.servicerepresentative.activities
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.location.LocationManager
@@ -17,26 +18,28 @@ import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.huawei.hms.location.FusedLocationProviderClient
 import com.huawei.hms.location.LocationCallback
-import com.huawei.hms.location.LocationRequest
 import com.huawei.hms.location.SettingsClient
 import com.huawei.hms.maps.*
-import com.huawei.hms.maps.model.CameraPosition
-import com.huawei.hms.maps.model.LatLng
-import com.huawei.hms.maps.model.LatLngBounds
+import com.huawei.hms.maps.model.*
+import com.joinhub.complaintprotaluser.models.UserModel
+import com.joinhub.khataapp.Utilites.ThemeDataStore.PreferencesKeys.name
 import com.joinhub.servicerepresentative.R
+import com.joinhub.servicerepresentative.WebServices.LoadUsers
 import com.joinhub.servicerepresentative.databinding.ActivityComplaintInfoBinding
 import com.joinhub.servicerepresentative.fragments.HomeFragment
 import com.joinhub.servicerepresentative.interfaces.ComplaintStatusInterface
 import com.joinhub.servicerepresentative.presenatator.ComplaintInfoPresentator
 import com.joinhub.servicerepresentative.utitlies.Constants
+import org.ksoap2.serialization.SoapObject
 
 
 val type = arrayOf("Active", "Solved", "Rejected", "Working","Cancelled")
 class ComplaintInfoActivity : AppCompatActivity() , OnMapReadyCallback, ComplaintStatusInterface{
+    private var mMarker: Marker? = null
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var mLocationCallback: LocationCallback
     private lateinit var settingsClient: SettingsClient
-    private lateinit var mLocationRequest: LocationRequest
+    private lateinit var mLocationRequest: com.huawei.hms.location.LocationRequest
     private lateinit var  locationManager: LocationManager
     private var latitude: Double = 0.0
     private var longitude = 0.0
@@ -138,7 +141,13 @@ class ComplaintInfoActivity : AppCompatActivity() , OnMapReadyCallback, Complain
            // setHuaweiMap()
         }
 
-
+        binding.btnStartChat.setOnClickListener {
+//            val intent= Intent(applicationContext,ChatDetailActivity::class.java)
+//            intent.putExtra("userName", HomeFragment.list1[pos].u)
+//            intent.putExtra("chatroom",chatRoomID)
+//            intent.putExtra("name", HomeFragment.list1[pos].complaintName)
+//            activity.startActivity(intent)
+        }
     }
 
     private fun setHuaweiMap() {
@@ -210,9 +219,17 @@ class ComplaintInfoActivity : AppCompatActivity() , OnMapReadyCallback, Complain
             CameraUpdateFactory.newLatLngZoom(
                 LatLng(lat,
                     lng
-                ), 50F
+                ), 30f
             )
         )
+        if (null != mMarker) {
+            mMarker?.remove()
+        }
+        val options = MarkerOptions()
+            .position(LatLng(lat, lng))
+            .title("User Location")
+            .snippet(HomeFragment.list1[pos].complaintName)
+        mMarker = hMap.addMarker(options)
     }
 
 
@@ -293,4 +310,39 @@ class ComplaintInfoActivity : AppCompatActivity() , OnMapReadyCallback, Complain
     override fun onError(e: String) {
     Toast.makeText(applicationContext,e,Toast.LENGTH_LONG).show()
     }
+
+//    fun loadData(areaID:Int){
+//
+//        Thread{
+//            userList= mutableListOf()
+//            pkgList= mutableListOf()
+//            //
+//            val api= LoadUsers()
+//            val root= api.loadData(areaID)
+//
+//            activity.runOnUiThread {
+//                for ( index in 0 until root.propertyCount){
+//                    val childObj: SoapObject = root.getProperty(index) as SoapObject
+//                    userList.add(
+//                        UserModel(Integer.parseInt(childObj.getProperty("userID").toString()),
+//                            childObj.getProperty("userName").toString(),
+//                            childObj.getProperty("userFullName").toString() ,
+//                            childObj.getProperty("userPass").toString(),
+//                            childObj.getProperty("userCNIC").toString(),
+//                            childObj.getProperty("userEmail").toString(),
+//                            childObj.getProperty("userPhone").toString(),
+//                            childObj.getProperty("userAddress").toString(),
+//                            Integer.parseInt(childObj.getProperty("pkgID").toString()),
+//                            Integer.parseInt(childObj.getProperty("areaID").toString()))
+//                    )
+//                }
+//                if(userList.isEmpty()){
+//                    view.onError("No User Found")
+//                }else{
+//                    getPkg()
+//                }
+//            }
+//        }.start()
+//    }
+
 }

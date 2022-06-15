@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="?attr/backgroundColor"
+    android:layout_height="match_parent"
+    tools:context=".activities.CreateUserActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView9"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        app:cardBackgroundColor="?attr/colorSecondary"
+        app:cardCornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/userNameLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:color/transparent"
+        android:elevation="5dp"
+        android:hint="Full Name"
+        android:textColorHint="?attr/colorOnSecondary"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeColor="?attr/colorSecondary"
+        app:endIconMode="clear_text"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:hintTextColor="?attr/colorOnSecondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView9">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fullNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserratregular"
+            android:inputType="text"
+            android:textColor="?attr/colorOnPrimary" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:elevation="5dp"
+        app:boxStrokeColor="?attr/colorSecondary"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="?attr/colorOnSecondary"
+        android:hint="User Name"
+        android:id="@+id/userIdLayout"
+        android:background="@android:color/transparent"
+        app:hintTextColor="?attr/colorOnSecondary"
+        android:layout_marginTop="10dp"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:endIconMode="clear_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNameLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/userIDeditText"
+            android:inputType="text"
+            android:textColor="?attr/colorOnPrimary"
+            android:fontFamily="@font/montserratregular"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:elevation="5dp"
+        app:boxStrokeColor="?attr/colorSecondary"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="?attr/colorOnSecondary"
+        android:hint="Email"
+        android:id="@+id/emailLayout"
+        android:background="@android:color/transparent"
+        app:hintTextColor="?attr/colorOnSecondary"
+        android:layout_marginTop="10dp"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:endIconMode="clear_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userIdLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/emailEditText"
+            android:inputType="textEmailAddress"
+            android:textColor="?attr/colorOnPrimary"
+            android:fontFamily="@font/montserratregular"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:elevation="5dp"
+        app:boxStrokeColor="?attr/colorSecondary"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="?attr/colorOnSecondary"
+        android:hint="Phone Number"
+        android:id="@+id/phoneLayout"
+        android:background="@android:color/transparent"
+        app:hintTextColor="?attr/colorOnSecondary"
+        android:layout_marginTop="10dp"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:endIconMode="clear_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/phoneEditText"
+            android:inputType="number"
+            android:textColor="?attr/colorOnPrimary"
+            android:fontFamily="@font/montserratregular"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:elevation="5dp"
+        app:boxStrokeColor="?attr/colorSecondary"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="?attr/colorOnSecondary"
+        android:hint="CNIC"
+        android:id="@+id/cnicLayout"
+        android:background="@android:color/transparent"
+        app:hintTextColor="?attr/colorOnSecondary"
+        android:layout_marginTop="10dp"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:endIconMode="clear_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/CNICeditText"
+            android:inputType="text"
+            android:textColor="?attr/colorOnPrimary"
+            android:fontFamily="@font/montserratregular"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:elevation="5dp"
+        app:boxStrokeColor="?attr/colorSecondary"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="?attr/colorOnSecondary"
+        android:hint="Address"
+        android:id="@+id/addressLayout"
+        android:background="@android:color/transparent"
+        app:hintTextColor="?attr/colorOnSecondary"
+        android:layout_marginTop="10dp"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:endIconMode="clear_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cnicLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/addressEditText"
+            android:inputType="text"
+            android:textColor="?attr/colorOnPrimary"
+            android:fontFamily="@font/montserratregular"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+        android:id="@+id/spinner1"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/addressLayout"
+        app:smsp_floatingLabelColor="#1976D2"
+        app:smsp_isOutlined="true"
+        app:smsp_floatingLabelText="Floating Label Text"
+        app:smsp_hint="Select Package"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:smsp_hintColor="?attr/colorOnPrimary"
+        app:smsp_itemColor="?attr/colorOnPrimary"
+        app:smsp_itemListColor="?attr/colorOnPrimary"
+        app:smsp_arrowColor="?attr/colorOnPrimary"
+        app:smsp_itemListBackgroundColor="?attr/backgroundColor"
+        android:popupBackground="?attr/backgroundColor"
+        app:smsp_itemListHintBackgroundColor="?attr/colorSecondaryVariant"
+        app:smsp_itemListHintColor="#FFFFFF"
+        app:smsp_multilineError="false"
+        app:smsp_selectedItemListColor="#FF5252" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCreateUser"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:text="Register User"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+
+        android:backgroundTint="?attr/colorSecondary"
+        app:layout_constraintEnd_toEndOf="@+id/spinner1"
+        app:layout_constraintStart_toStartOf="@+id/spinner1"
+        app:layout_constraintTop_toBottomOf="@+id/spinner1" />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/progressBar"
+        style="@style/SpinKitView.Wave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        app:SpinKit_Color="?attr/colorSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

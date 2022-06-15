@@ -1,31 +1,21 @@
 package com.joinhub.servicerepresentative.fragments
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.github.mikephil.charting.components.YAxis
-import com.joinhub.servicerepresentative.R
-import com.joinhub.servicerepresentative.activities.ComplaintInfoActivity
-import com.joinhub.servicerepresentative.activities.DashboardActivity
-import com.joinhub.servicerepresentative.databinding.FragmentHomeBinding
-import com.github.mikephil.charting.data.BarData
-
-import com.github.mikephil.charting.data.BarDataSet
-
-import com.github.mikephil.charting.data.BarEntry
 import com.joinhub.alphavpn.utility.Preference
 import com.joinhub.complaintprotaluser.models.ComplaintModel
 import com.joinhub.complaintprotaluser.models.ServiceModel
+import com.joinhub.servicerepresentative.R
+import com.joinhub.servicerepresentative.activities.DashboardActivity
 import com.joinhub.servicerepresentative.adapter.ComplaintAdapter
+import com.joinhub.servicerepresentative.databinding.FragmentHomeBinding
 import com.joinhub.servicerepresentative.interfaces.DashboardInterface
 import com.joinhub.servicerepresentative.interfaces.SingleDataInterface
 import com.joinhub.servicerepresentative.presenatator.HomePresentator
@@ -40,9 +30,9 @@ class HomeFragment : Fragment(), DashboardInterface<ComplaintModel>,SingleDataIn
         var list1:MutableList<ComplaintModel> = mutableListOf()
     }
 
-    var activeComplaint:Int=0
-    var solvedComplaint:Int=0
-    var allComplaint:Int=0
+    private var activeComplaint:Int=0
+    private var solvedComplaint:Int=0
+    private var allComplaint:Int=0
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -56,9 +46,11 @@ class HomeFragment : Fragment(), DashboardInterface<ComplaintModel>,SingleDataIn
            DashboardActivity.navController.navigate(R.id.navigation_dashboard)
         }
         if(preference.getIntpreference("serviceID")==0){
+
             presenatator.loadSRDetail(preference.getStringpreference("serviceUserName",null).toString())
         }else{
             if(list1.isEmpty()){
+                Toast.makeText(requireContext(),preference.getIntpreference("serviceID").toString(),Toast.LENGTH_LONG).show()
                 presenatator.loadComplaint(preference.getIntpreference("serviceID"))
             }else{
                 calculateData(list1)
@@ -72,49 +64,14 @@ class HomeFragment : Fragment(), DashboardInterface<ComplaintModel>,SingleDataIn
         adapter= ComplaintAdapter(requireActivity(),list1, "home")
         binding.recyclerHomeComplaint.layoutManager= LinearLayoutManager(requireContext(),RecyclerView.VERTICAL,false)
         binding.recyclerHomeComplaint.adapter= adapter
-
+        binding.complaintPro.visibility= View.GONE
     }
 
     private fun init() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            showBarChart()
-        }
+
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
-    private fun showBarChart() {
-        val valueList = ArrayList<Double>()
-        val entries: ArrayList<BarEntry> = ArrayList()
-        //input data
-        for (i in 0..5) {
-            valueList.add(i * 100.1)
-        }
 
-        //fit the data into a bar
-        for (i in 0 until valueList.size) {
-            val barEntry =BarEntry(i.toFloat(), valueList[i].toFloat())
-            entries.add(barEntry)
-        }
-        val barDataSet = BarDataSet(entries, "")
-        val data = BarData(barDataSet)
-
-        barDataSet.color= requireContext().getColor(R.color.colorSecDark)
-        binding.activeBarchart.data = data
-        barDataSet.valueTextColor= requireContext().getColor(R.color.colorSecDark)
-        binding.activeBarchart.setViewPortOffsets(0F,0F,0F,0F)
-        binding.activeBarchart.moveViewTo(0f,0f, YAxis.AxisDependency.RIGHT)
-
-        binding.activeBarchart.invalidate()
-        binding.activeBarchart.setFitBars(true)
-        binding.activeBarchart.description.isEnabled=false   // Hide the description
-        binding.activeBarchart.axisLeft.setDrawLabels(false)
-        binding.activeBarchart.axisRight.setDrawLabels(false)
-        binding.activeBarchart.xAxis.setDrawLabels(false)
-        binding.activeBarchart.axisLeft.setDrawGridLines(false)
-        binding.activeBarchart.xAxis.setDrawGridLines(false)
-        binding.activeBarchart.axisRight.setDrawGridLines(false)
-        binding.activeBarchart.legend.isEnabled = false  // Hide the legend
-    }
     @SuppressLint("SetTextI18n")
     override fun onResume() {
         super.onResume()
@@ -144,6 +101,7 @@ class HomeFragment : Fragment(), DashboardInterface<ComplaintModel>,SingleDataIn
         Toast.makeText(requireContext(),"SR Sucess",Toast.LENGTH_LONG).show()
         presenatator.loadComplaint(model.serviceID)
 
+
     }
 
     override fun onSuccess(list: MutableList<ComplaintModel>) {
@@ -170,8 +128,12 @@ class HomeFragment : Fragment(), DashboardInterface<ComplaintModel>,SingleDataIn
                 }
             }
         }
+        binding.pro1.visibility= View.GONE
+        binding.pro2.visibility= View.GONE
+        binding.pro3.visibility= View.GONE
         binding.txtActive.text= ""+ activeComplaint
         binding.txtSolved.text=""+ solvedComplaint
         binding.txtPending.text=""+ allComplaint
+
     }
 }

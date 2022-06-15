@@ -45,15 +45,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.github.mikephil.charting.charts.BarChart
+            <ImageView
                 android:id="@+id/activeBarchart"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-
+                android:src="@drawable/ic_complaint"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
-                android:padding="0dp" />
+                android:padding="0dp"
+                app:tint="@color/white" />
 
             <TextView
                 android:id="@+id/txtActive"
@@ -63,11 +64,19 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/imbplexmediem"
-                android:text="100"
+                android:text=""
 
                 android:textColor="@color/white"
                 android:textSize="18sp" />
+            <ProgressBar
+                android:layout_width="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
 
+                android:layout_height="20dp"
+                android:id="@+id/pro1"
+                android:layout_below="@id/activeBarchart"
+                />
             <TextView
                 android:id="@+id/txta"
                 android:layout_width="wrap_content"
@@ -75,6 +84,8 @@
                 android:layout_alignBottom="@id/txtActive"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
                 android:layout_toEndOf="@id/txtActive"
                 android:fontFamily="@font/imbplexmediem"
                 android:text="Active"
@@ -135,13 +146,16 @@
                     android:src="@drawable/ic__menu"
                     app:tint="@color/white" />
 
-                <com.github.mikephil.charting.charts.BarChart
+                <ImageView
                     android:id="@+id/solvedComplaintBarChart"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp" />
+                    android:layout_marginEnd="5dp"
+                    android:padding="0dp"
+                    android:src="@drawable/ic_complaint"
+                    app:tint="@color/white" />
 
                 <TextView
                     android:id="@+id/txtSolved"
@@ -151,10 +165,19 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/imbplexmediem"
-                    android:text="100"
+                    android:text=""
 
                     android:textColor="@color/white"
                     android:textSize="18sp" />
+                <ProgressBar
+                    android:layout_width="20dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="20dp"
+
+                    android:layout_height="20dp"
+                    android:id="@+id/pro2"
+                    android:layout_below="@id/solvedComplaintBarChart"
+                    />
 
                 <TextView
                     android:id="@+id/txtc"
@@ -163,6 +186,8 @@
                     android:layout_alignBottom="@id/txtSolved"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="15dp"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
                     android:layout_toEndOf="@id/txtSolved"
                     android:fontFamily="@font/imbplexmediem"
                     android:text="Solved"
@@ -215,14 +240,26 @@
                     android:src="@drawable/ic__menu"
                     app:tint="@color/white" />
 
-                <com.github.mikephil.charting.charts.BarChart
+                <ImageView
                     android:id="@+id/recBillsChart"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:src="@drawable/ic_complaint"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp" />
+                    android:layout_marginEnd="5dp"
+                    android:padding="0dp"
+                    app:tint="@color/white" />
 
+                <ProgressBar
+                    android:layout_width="20dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="20dp"
+
+                    android:layout_height="20dp"
+                    android:id="@+id/pro3"
+                    android:layout_below="@id/recBillsChart"
+                    />
                 <TextView
                     android:id="@+id/txtPending"
                     android:layout_width="wrap_content"
@@ -230,8 +267,9 @@
                     android:layout_below="@id/recBillsChart"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="15dp"
+
                     android:fontFamily="@font/imbplexmediem"
-                    android:text="100"
+                    android:text=""
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -239,11 +277,14 @@
                     android:id="@+id/txtb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
                     android:layout_alignBottom="@id/txtPending"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_toEndOf="@id/txtPending"
                     android:fontFamily="@font/imbplexmediem"
+                    android:gravity="center"
                     android:text="Cancelled"
                     android:textColor="@color/grey"
                     android:textSize="14sp" />
@@ -269,6 +310,7 @@
         android:layout_margin="10dp"
         app:cardCornerRadius="0dp"
         app:cardElevation="5dp"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView3"
         tools:layout_editor_absoluteX="10dp">
 
@@ -473,6 +515,14 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:id="@+id/complaintPro"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/recyclerHomeComplaint"
+            app:layout_constraintEnd_toEndOf="@+id/recyclerHomeComplaint"
+            app:layout_constraintStart_toStartOf="@+id/recyclerHomeComplaint"
+            app:layout_constraintTop_toTopOf="@+id/recyclerHomeComplaint" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
