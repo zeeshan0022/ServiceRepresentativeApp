@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
+import com.google.android.gms.maps.GoogleMap
 import com.huawei.hms.location.FusedLocationProviderClient
 import com.huawei.hms.location.LocationCallback
 import com.huawei.hms.location.SettingsClient
@@ -34,12 +35,8 @@ import org.ksoap2.serialization.SoapObject
 
 
 val type = arrayOf("Active", "Solved", "Rejected", "Working","Cancelled")
-class ComplaintInfoActivity : AppCompatActivity() , OnMapReadyCallback, ComplaintStatusInterface{
+class ComplaintInfoActivity : AppCompatActivity() , OnMapReadyCallback, ComplaintStatusInterface, com.google.android.gms.maps.OnMapReadyCallback{
     private var mMarker: Marker? = null
-    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    private lateinit var mLocationCallback: LocationCallback
-    private lateinit var settingsClient: SettingsClient
-    private lateinit var mLocationRequest: com.huawei.hms.location.LocationRequest
     private lateinit var  locationManager: LocationManager
     private var latitude: Double = 0.0
     private var longitude = 0.0
@@ -73,9 +70,10 @@ class ComplaintInfoActivity : AppCompatActivity() , OnMapReadyCallback, Complain
         presentator= ComplaintInfoPresentator(this,this)
         binding.btnGetDirection.setOnClickListener {
             if(checkGoogleGMS()){
-
+                initMap()
             }else{
                 getLocation()
+
             }
         }
 
@@ -108,34 +106,39 @@ class ComplaintInfoActivity : AppCompatActivity() , OnMapReadyCallback, Complain
         init()
         mGoogleFrag= supportFragmentManager.findFragmentById(R.id.map)
                 as com.google.android.gms.maps.SupportMapFragment
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+            // Check whether your app has the specified permission and whether the app operation corresponding to the permission is allowed.
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
+                || ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // Request permissions for your app.
+                val strings = arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                )
+                // Request permissions.
+                ActivityCompat.requestPermissions(this, strings, 1)
+            }
+        }
         if(checkGoogleGMS()){
             binding.huaweiLinear.visibility= View.GONE
             binding.googleMapLinear.visibility= View.VISIBLE
+            val frag=supportFragmentManager.findFragmentById(R.id.map) as com.google.android.gms.maps.SupportMapFragment
+            frag.getMapAsync(this)
+
         }else{
 
             binding.huaweiLinear.visibility= View.VISIBLE
             binding.googleMapLinear.visibility= View.GONE
-               if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
-                // Check whether your app has the specified permission and whether the app operation corresponding to the permission is allowed.
-                if (ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED
-                    || ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    // Request permissions for your app.
-                    val strings = arrayOf(
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                    )
-                    // Request permissions.
-                    ActivityCompat.requestPermissions(this, strings, 1)
-                }
-            }
 
             mSupportMapFragment?.getMapAsync(this)
            // setHuaweiMap()
@@ -150,35 +153,10 @@ class ComplaintInfoActivity : AppCompatActivity() , OnMapReadyCallback, Complain
         }
     }
 
-    private fun setHuaweiMap() {
-        val mSupportMapFragment: SupportMapFragment
-// Set initial camera attributes.
-        val cameraPosition = CameraPosition.builder().target(LatLng(48.893478, 2.334595))
-            .zoom(10f).bearing(45f).tilt(20f).build()
+    private fun initMap() {
 
-// Construct the target area of the camera.
-        val southwest = LatLng(47.893478, 3.334595)
-        val northeast = LatLng(49.893478, 1.334595)
-        val latLngBounds = LatLngBounds(southwest, northeast)
-
-        val options = HuaweiMapOptions()
-        options.mapType(HuaweiMap.MAP_TYPE_NORMAL)
-            .camera(cameraPosition)
-            .zoomControlsEnabled(false)
-            .compassEnabled(true)
-            .zoomGesturesEnabled(true)
-            .scrollGesturesEnabled(true)
-            .rotateGesturesEnabled(false)
-            .tiltGesturesEnabled(true)
-            .zOrderOnTop(true)
-            .useViewLifecycleInFragment(true)
-            .liteMode(false)
-            .minZoomPreference(3f)
-            .maxZoomPreference(13f)
-            .latLngBoundsForCameraTarget(latLngBounds)
-
-        mSupportMapFragment = SupportMapFragment.newInstance(options)
     }
+
 
     private fun setData() {
 
@@ -311,38 +289,10 @@ class ComplaintInfoActivity : AppCompatActivity() , OnMapReadyCallback, Complain
     Toast.makeText(applicationContext,e,Toast.LENGTH_LONG).show()
     }
 
-//    fun loadData(areaID:Int){
-//
-//        Thread{
-//            userList= mutableListOf()
-//            pkgList= mutableListOf()
-//            //
-//            val api= LoadUsers()
-//            val root= api.loadData(areaID)
-//
-//            activity.runOnUiThread {
-//                for ( index in 0 until root.propertyCount){
-//                    val childObj: SoapObject = root.getProperty(index) as SoapObject
-//                    userList.add(
-//                        UserModel(Integer.parseInt(childObj.getProperty("userID").toString()),
-//                            childObj.getProperty("userName").toString(),
-//                            childObj.getProperty("userFullName").toString() ,
-//                            childObj.getProperty("userPass").toString(),
-//                            childObj.getProperty("userCNIC").toString(),
-//                            childObj.getProperty("userEmail").toString(),
-//                            childObj.getProperty("userPhone").toString(),
-//                            childObj.getProperty("userAddress").toString(),
-//                            Integer.parseInt(childObj.getProperty("pkgID").toString()),
-//                            Integer.parseInt(childObj.getProperty("areaID").toString()))
-//                    )
-//                }
-//                if(userList.isEmpty()){
-//                    view.onError("No User Found")
-//                }else{
-//                    getPkg()
-//                }
-//            }
-//        }.start()
-//    }
+    override fun onMapReady(map: GoogleMap) {
+        val latLn=com.google.android.gms.maps.model.LatLng(lat,lng)
+        map.moveCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(latLn, 200.0F))
+    }
+
 
 }

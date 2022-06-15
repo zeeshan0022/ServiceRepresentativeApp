@@ -89,6 +89,7 @@
         app:layout_constraintVertical_bias="0.89"
         android:layout_width="wrap_content"
         app:cardCornerRadius="0dp"
+        android:visibility="gone"
         android:layout_marginStart="10dp"
         android:layout_height="wrap_content">
     <ImageView

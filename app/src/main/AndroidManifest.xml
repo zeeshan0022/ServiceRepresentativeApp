@@ -70,7 +70,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value="AIzaSyAE_pNQ5C7bCBYhl79sJ0HXI0rxcD2q7n4" />
         <meta-data
             android:name="com.huawei.hms.client.channel.androidMarket"
             android:value="false" />
