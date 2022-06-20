@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
 
         app:cardCornerRadius="0dp"
+        app:cardBackgroundColor="?attr/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +24,9 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:id="@+id/searchUser"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
@@ -49,6 +51,7 @@
                 android:orientation="horizontal"
                 app:boxStrokeColor="?attr/colorSecondary"
                 app:endIconTint="?attr/colorSecondary"
+                android:visibility="gone"
                 app:hintTextColor="?attr/colorOnPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">

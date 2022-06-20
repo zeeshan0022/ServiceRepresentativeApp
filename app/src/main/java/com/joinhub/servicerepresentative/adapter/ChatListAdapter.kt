@@ -39,6 +39,7 @@ class ChatListAdapter(val activity:Activity, val list:MutableList<ChatList>):Rec
                     intent.putExtra("name", name)
 
                     activity.startActivity(intent)
+
                 }
             }
 

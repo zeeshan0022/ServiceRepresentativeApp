@@ -4,10 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.joinhub.alphavpn.utility.Preference
 import com.joinhub.complaintprotaluser.viewmodels.ThemeViewModel
 import com.joinhub.servicerepresentative.ManageAppActivity
+import com.joinhub.servicerepresentative.R
 import com.joinhub.servicerepresentative.utitlies.Constants
 import com.joinhub.servicerepresentative.databinding.ActivityProfileBinding
 
@@ -20,6 +22,12 @@ class ProfileActivity : AppCompatActivity() {
         binding= ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         init()
+        binding.materialButton.setOnClickListener{
+            startActivity(Intent(this, FullProfileActivity::class.java))
+        }
+        binding.materialCardView13.setOnClickListener{
+            startActivity(Intent(this, FullProfileActivity::class.java))
+        }
         binding.logout.setOnClickListener {
 
             preference.setBooleanpreference("user",false)
@@ -44,6 +52,11 @@ class ProfileActivity : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 Constants.lightThemeStyle(this)
             }
+        }
+        if(preference.getStringpreference("imageV",null)!=null){
+            binding.userImage.setImageBitmap(Constants.decodeBase64(preference.getStringpreference("imageV",null)))
+        }else{
+            binding.userImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.male_avatar))
         }
         binding.back.setOnClickListener { finish() }
         setData()

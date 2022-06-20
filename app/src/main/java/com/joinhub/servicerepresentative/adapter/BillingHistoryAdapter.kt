@@ -67,7 +67,7 @@ class BillingHistoryAdapter(val context: Context, val list:List<BillingModel>):
         val dialog = Dialog(activity!!)
         val preference=Preference(context)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(false)
+        dialog.setCancelable(true)
         dialog.setContentView(R.layout.dialog_billing_invoice)
         val billingID= dialog.findViewById<TextView>(R.id.invoice_id)
         val date= dialog.findViewById<TextView>(R.id.invoice_date)

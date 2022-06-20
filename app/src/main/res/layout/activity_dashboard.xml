@@ -48,7 +48,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/image"/>
+                    android:id="@+id/user_Image"
+                    android:src="@drawable/image"
+                    android:contentDescription="oiii" />
             </com.google.android.material.card.MaterialCardView>
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
@@ -60,7 +62,7 @@
         android:layout_marginEnd="0dp"
         app:itemIconTint="@color/bottom_nav_selector"
         app:itemTextColor="@color/bottom_nav_selector"
-        android:background="?android:attr/windowBackground"
+        android:background="?attr/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

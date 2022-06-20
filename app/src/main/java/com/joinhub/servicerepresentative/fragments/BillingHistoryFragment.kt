@@ -1,6 +1,8 @@
 package com.joinhub.servicerepresentative.fragments
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +22,9 @@ import org.ksoap2.serialization.SoapObject
 class BillingHistoryFragment : Fragment() , LoadDataListInterface<BillingModel>{
     lateinit var binding:FragmentBillingHistoryBinding
     lateinit var list: MutableList<BillingModel>
+    lateinit var list1: MutableList<BillingModel>
     lateinit var adapter: BillingHistoryAdapter
+
     lateinit var  preference: Preference
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +32,7 @@ class BillingHistoryFragment : Fragment() , LoadDataListInterface<BillingModel>{
     ): View {
         binding= FragmentBillingHistoryBinding.inflate(inflater,container, false)
         list= mutableListOf()
+        list1= mutableListOf()
         preference= Preference(requireContext())
         if(list.isEmpty()){
             binding.progressBar.visibility= View.VISIBLE
@@ -35,6 +40,24 @@ class BillingHistoryFragment : Fragment() , LoadDataListInterface<BillingModel>{
         }else{
             setUpRec(list )
         }
+        binding.searchUser.addTextChangedListener(object:TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+               if(s!!.isBlank()){
+                   setUpRec(list)
+               }else{
+
+               }
+            }
+
+        })
         return binding.root
     }
 
@@ -50,7 +73,22 @@ class BillingHistoryFragment : Fragment() , LoadDataListInterface<BillingModel>{
         binding.progressBar.visibility= View.GONE
     }
 
+    private fun filterData(s: String) {
+        list1.clear()
+        for (model in list){
+            if(model.userID.equals(s)){
+                list1.add(model)
+            }
+        }
 
+        if(list1.isEmpty()){
+            binding.recBillingHistory.visibility= View.GONE
+
+        }else{
+            binding.recBillingHistory.visibility= View.VISIBLE
+            setUpRec(list1)
+        }
+    }
 
     private fun loadHistory(userID: String){
         list= mutableListOf()

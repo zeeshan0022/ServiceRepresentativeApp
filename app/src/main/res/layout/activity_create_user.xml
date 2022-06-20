@@ -12,8 +12,9 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView9"
         android:layout_width="match_parent"
+
         android:layout_height="45dp"
-        app:cardBackgroundColor="?attr/colorSecondary"
+        app:cardBackgroundColor="?attr/colorAccent"
         app:cardCornerRadius="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +24,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Create User"
+                android:textSize="15sp"
+                android:fontFamily="@font/montserratbold"
+                android:textColor="?attr/colorOnPrimary"/>
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 

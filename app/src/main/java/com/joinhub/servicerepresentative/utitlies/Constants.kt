@@ -2,7 +2,10 @@ package com.joinhub.servicerepresentative.utitlies
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
+import android.util.Base64
 import android.view.View
 import android.view.Window
 import androidx.core.view.WindowInsetsControllerCompat
@@ -24,7 +27,7 @@ object Constants {
 
         const val WSDL_TARGET_NAMESPACE = "http://tempuri.org/"
 
-        const val SOAP_ADDRESS = "http://192.168.0.103:2020/WebService1.asmx"
+        const val SOAP_ADDRESS = "http://192.168.0.102:2020/WebService1.asmx"
 
 
         fun darkThemeStyle(activity: Activity) {
@@ -89,5 +92,14 @@ object Constants {
             }
         }
         return -1
+
     }
+
+    fun decodeBase64(input: String?): Bitmap? {
+        val decodedByte = Base64.decode(input, 0)
+        return BitmapFactory
+            .decodeByteArray(decodedByte, 0, decodedByte.size)
+    }
+
+
     }

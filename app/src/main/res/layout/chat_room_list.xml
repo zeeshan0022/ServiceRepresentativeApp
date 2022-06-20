@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="?attr/backgroundColor"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -19,6 +20,7 @@
             android:id="@+id/im"
             android:layout_width="60dp"
             android:layout_height="60dp"
+
             app:cardCornerRadius="30dp">
 
             <ImageView
